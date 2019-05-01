@@ -1,4 +1,9 @@
+// Copyright (c) 2019 Andrey E. Yaromenok
+// MIT License
+// https://raw.githubusercontent.com/ayaromenok/QtClassGenerator/master/LICENSE
+
 #include "yawidgetv0.h"
+#include "yobj/yrootobject.h"
 #include <QtWidgets>
 
 YaWidgetV0::YaWidgetV0(QWidget *parent)
@@ -7,6 +12,10 @@ YaWidgetV0::YaWidgetV0(QWidget *parent)
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
     if (!setupUI()){
         qWarning() << "someting wrong with UI\nExiting..";
+        QCoreApplication::exit(-1);
+    }
+    if(!setupObj()){
+        qWarning() << "someting wrong with Objects\nExiting..";
         QCoreApplication::exit(-1);
     }
 }
@@ -64,5 +73,15 @@ YaWidgetV0::setupUI()
     setWindowTitle("ReferenceApp V0");
 
     connect(_pbCtrlExit, SIGNAL(clicked()), this, SLOT(close()));
+    return true;
+}
+
+bool
+YaWidgetV0::setupObj()
+{
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
+
+    _yro = new YRootObject();
+    if (!_yro) {qWarning() << "_yro issue"; return false;}
     return true;
 }

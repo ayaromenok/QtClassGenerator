@@ -1,3 +1,7 @@
+// Copyright (c) 2019 Andrey E. Yaromenok
+// MIT License
+// https://raw.githubusercontent.com/ayaromenok/QtClassGenerator/master/LICENSE
+
 #ifndef YAWIDGETV0_H
 #define YAWIDGETV0_H
 
@@ -8,6 +12,7 @@ class QGroupBox;
 class QStackedWidget;
 class QLabel;
 class QPushButton;
+class YRootObject;
 
 class YaWidgetV0 : public QWidget
 {
@@ -19,6 +24,7 @@ public:
 
 private:
     bool            setupUI();
+    bool            setupObj();
 
     QHBoxLayout     *_loutMain;
     QGroupBox       *_gbLeft;
@@ -31,6 +37,8 @@ private:
     QVBoxLayout         *_loutCtrl;
     QPushButton         *_pbCtrlExit;
     QStackedWidget      *_swCtrl;
+
+    YRootObject         *_yro;
 };
 
 #endif // YAWIDGETV0_H
