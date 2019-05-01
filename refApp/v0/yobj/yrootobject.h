@@ -21,6 +21,7 @@ signals:
 
 public slots:
     virtual void setParams(QMap<QString, QVariant> & params);
+    void setCtrlUI(QStackedWidget &sw);
 
 protected:
     virtual bool            setupUI();

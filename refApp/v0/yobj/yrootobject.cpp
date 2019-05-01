@@ -43,3 +43,13 @@ YRootObject::setupUI()
     _wCtrl->setLayout(lout);
     return true;
 }
+
+void
+YRootObject::setCtrlUI(QStackedWidget &sw)
+{
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
+    if (-1 == sw.indexOf(_wCtrl)){
+        sw.addWidget(_wCtrl);
+    }
+    sw.setCurrentWidget(_wCtrl);
+}

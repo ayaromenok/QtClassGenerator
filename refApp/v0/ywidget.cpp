@@ -106,4 +106,5 @@ YWidget::updateObj(int index)
 {
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__
             << index;
+    _ro->setCtrlUI(*_swCtrl);
 }
