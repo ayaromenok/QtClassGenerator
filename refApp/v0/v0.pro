@@ -16,12 +16,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        yawidgetv0.cpp \
-        yobj/yrootobject.cpp
+        yobj/yrootobject.cpp \
+        ywidget.cpp
 
 HEADERS += \
-        yawidgetv0.h \
-        yobj/yrootobject.h
+        yobj/yrootobject.h \
+        ywidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

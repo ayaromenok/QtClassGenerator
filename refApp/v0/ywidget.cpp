@@ -2,11 +2,11 @@
 // MIT License
 // https://raw.githubusercontent.com/ayaromenok/QtClassGenerator/master/LICENSE
 
-#include "yawidgetv0.h"
+#include "ywidget.h"
 #include "yobj/yrootobject.h"
 #include <QtWidgets>
 
-YaWidgetV0::YaWidgetV0(QWidget *parent)
+YWidget::YWidget(QWidget *parent)
     : QWidget(parent)
 {
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
@@ -20,13 +20,13 @@ YaWidgetV0::YaWidgetV0(QWidget *parent)
     }
 }
 
-YaWidgetV0::~YaWidgetV0()
+YWidget::~YWidget()
 {
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
 }
 
 bool
-YaWidgetV0::setupUI()
+YWidget::setupUI()
 {
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
 
@@ -77,11 +77,11 @@ YaWidgetV0::setupUI()
 }
 
 bool
-YaWidgetV0::setupObj()
+YWidget::setupObj()
 {
     qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
 
-    _yro = new YRootObject();
-    if (!_yro) {qWarning() << "_yro issue"; return false;}
+    _ro = new YRootObject();
+    if (!_ro) {qWarning() << "_yro issue"; return false;}
     return true;
 }

@@ -2,8 +2,8 @@
 // MIT License
 // https://raw.githubusercontent.com/ayaromenok/QtClassGenerator/master/LICENSE
 
-#ifndef YAWIDGETV0_H
-#define YAWIDGETV0_H
+#ifndef YWIDGET_H
+#define YWIDGET_H
 
 #include <QWidget>
 class QHBoxLayout;
@@ -14,13 +14,13 @@ class QLabel;
 class QPushButton;
 class YRootObject;
 
-class YaWidgetV0 : public QWidget
+class YWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    YaWidgetV0(QWidget *parent = 0);
-    ~YaWidgetV0();
+    YWidget(QWidget *parent = 0);
+    ~YWidget();
 
 private:
     bool            setupUI();
@@ -38,7 +38,7 @@ private:
     QPushButton         *_pbCtrlExit;
     QStackedWidget      *_swCtrl;
 
-    YRootObject         *_yro;
+    YRootObject         *_ro;
 };
 
-#endif // YAWIDGETV0_H
+#endif // YWIDGET_H
