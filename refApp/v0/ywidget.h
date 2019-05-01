@@ -12,7 +12,10 @@ class QGroupBox;
 class QStackedWidget;
 class QLabel;
 class QPushButton;
+class QComboBox;
+
 class YRootObject;
+
 
 class YWidget : public QWidget
 {
@@ -21,10 +24,12 @@ class YWidget : public QWidget
 public:
     YWidget(QWidget *parent = 0);
     ~YWidget();
-
+public slots:
+    void updateObj(int index);
 private:
     bool            setupUI();
     bool            setupObj();
+    bool            setupSignalSlots();
 
     QHBoxLayout     *_loutMain;
     QGroupBox       *_gbLeft;
@@ -36,6 +41,7 @@ private:
     QGroupBox       *_gbCtrl;
     QVBoxLayout         *_loutCtrl;
     QPushButton         *_pbCtrlExit;
+    QComboBox           *_cbCtrlObjs;
     QStackedWidget      *_swCtrl;
 
     YRootObject         *_ro;

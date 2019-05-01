@@ -8,20 +8,20 @@
 
 YRootObject::YRootObject(QObject *parent) : QObject(parent)
 {
-    qInfo() << __PRETTY_FUNCTION__;
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
     setObjectName("YRootObject");
     setupUI();
 }
 
 YRootObject::~YRootObject()
 {
-    qInfo() << __PRETTY_FUNCTION__;
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
 }
 
 void
 YRootObject::setParams(QMap<QString, QVariant> & params)
 {
-    qInfo() << __PRETTY_FUNCTION__;
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
     _p = params;
     if(_p.contains("dumpParamsToCon")){
         if(_p.value("dumpParamsToCon").toBool()){
@@ -33,7 +33,7 @@ YRootObject::setParams(QMap<QString, QVariant> & params)
 bool
 YRootObject::setupUI()
 {
-    qInfo() << __PRETTY_FUNCTION__;
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
     _wCtrl = new QWidget;
     QVBoxLayout *lout = new QVBoxLayout();
     if (!lout) {qWarning() << "lout issue"; return false;}

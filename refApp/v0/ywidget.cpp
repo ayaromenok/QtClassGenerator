@@ -57,10 +57,14 @@ YWidget::setupUI()
     if (!_loutCtrl) {qWarning() << "_loutCtrl issue"; return false;}
     _pbCtrlExit = new QPushButton("E&xit");
     if (!_pbCtrlExit) {qWarning() << "_pbCtrlExit issue"; return false;}
+    _cbCtrlObjs = new QComboBox();
+    _cbCtrlObjs->addItems(QStringList() << "obj #0" << "obj #1" << "obj #2");
+    if (!_cbCtrlObjs) {qWarning() << "_cbCtrlObjs issue"; return false;}
     _swCtrl = new QStackedWidget();
     if (!_swCtrl) {qWarning() << "_swCtrl issue"; return false;}
 
     _loutCtrl->addWidget(_pbCtrlExit);
+    _loutCtrl->addWidget(_cbCtrlObjs);
     _loutCtrl->addWidget(_swCtrl);
     _gbCtrl->setLayout(_loutCtrl);
 
@@ -72,7 +76,18 @@ YWidget::setupUI()
     setLayout(_loutMain);
     setWindowTitle("ReferenceApp V0");
 
+    setupSignalSlots();
+
+    return true;
+}
+
+bool
+YWidget::setupSignalSlots()
+{
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__;
     connect(_pbCtrlExit, SIGNAL(clicked()), this, SLOT(close()));
+    connect(_cbCtrlObjs, QOverload<int>::of(&QComboBox::activated),
+            this, &YWidget::updateObj);
     return true;
 }
 
@@ -84,4 +99,11 @@ YWidget::setupObj()
     _ro = new YRootObject();
     if (!_ro) {qWarning() << "_yro issue"; return false;}
     return true;
+}
+
+void
+YWidget::updateObj(int index)
+{
+    qInfo() << QDateTime::currentMSecsSinceEpoch() << __PRETTY_FUNCTION__
+            << index;
 }
