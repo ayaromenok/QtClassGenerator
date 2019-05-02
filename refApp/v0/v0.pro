@@ -16,10 +16,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
+        yobj/ygoodobj.cpp \
         yobj/yrootobject.cpp \
         ywidget.cpp
 
 HEADERS += \
+        yobj/ygoodobj.h \
         yobj/yrootobject.h \
         ywidget.h
 
